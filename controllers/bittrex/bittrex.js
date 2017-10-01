@@ -35,7 +35,18 @@ exports.getMarksummaries = wrap(function*(req, res) {
       res.send(data);
     })
   */
-  bittrex.getorderbook({ market : 'BTC-LTC', depth : 1, type : 'both' }, function( data, err ) {
+
+  /* 
+    获取某个市场的挂单信息
+    bittrex.getorderbook({ market : 'BTC-BTS', type : 'both' }, function( data, err ) {
+      res.send( data );
+    });
+  */
+
+  /* 
+    获取各个交易对的信息(包括最新价钱，交易量(基于BTC))
+  */
+  bittrex.getmarketsummaries( function( data, err ) {
     res.send( data );
   });
 
